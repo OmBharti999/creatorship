@@ -21,9 +21,10 @@ const formSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
-  description: z.string().min(7, {
+  description: z.string().min(120, {
     message: "Password must be at least 120 characters.",
   }),
+  isCreator: z.boolean(),
 });
 
 export function IdeaForm() {
@@ -32,6 +33,7 @@ export function IdeaForm() {
     defaultValues: {
       title: "",
       description: "",
+      isCreator: false,
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
@@ -53,6 +55,20 @@ export function IdeaForm() {
                 <Input placeholder="title" {...field} />
               </FormControl>
               <FormDescription>Write your Title here.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="isCreator"
+          render={({ field }) => (
+            <FormItem className="flex">
+              <FormLabel>Is this for Creators</FormLabel>
+              <FormControl>
+                {/* @ts-ignore */}
+                <Input type="checkbox" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
