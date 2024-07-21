@@ -23,6 +23,7 @@ export function Sidebar() {
             done.
           </SheetDescription>
         </SheetHeader>
+        <hr className="mt-2 mb-6" />
         <IdeaForm />
       </SheetContent>
     </Sheet>

@@ -48,20 +48,6 @@ export function IdeaForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Role Title</FormLabel>
-              <FormControl>
-                <Input placeholder="title" {...field} />
-              </FormControl>
-              <FormDescription>Write your Title here.</FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="isCreator"
           render={({ field }) => (
             <FormItem className="flex justify-start gap-4 items-center">
@@ -74,6 +60,21 @@ export function IdeaForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="title"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Role Title</FormLabel>
+              <FormControl>
+                <Input placeholder="title" {...field} />
+              </FormControl>
+              <FormDescription>Write your Title here.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="description"
