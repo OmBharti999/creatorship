@@ -20,10 +20,24 @@ const formSchema = z.object({
   username: z.string().min(2, {
     message: "Username must be at least 2 characters.",
   }),
+  password: z.string().min(7, {
+    message: "Password must be at least 7 characters.",
+  }),
 });
 
-export function ProfileForm() {
-  // ...
+export function SignInForm() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+      password: "",
+    },
+  });
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
 
   return (
     <Form {...form}>
@@ -44,6 +58,20 @@ export function ProfileForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+              <FormControl>
+                <Input placeholder="your password" {...field} />
+              </FormControl>
+              <FormDescription>This is your private password.</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
@@ -51,7 +79,13 @@ export function ProfileForm() {
 }
 
 const SignIn = () => {
-  return <div>SignIn</div>;
+  return (
+    <section>
+      <div className="max-w-lg mx-auto border border-blue-900 p-12 rounded-xl my-20">
+        <SignInForm />
+      </div>
+    </section>
+  );
 };
 
 export default SignIn;
