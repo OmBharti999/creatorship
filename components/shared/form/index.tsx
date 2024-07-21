@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -63,11 +64,11 @@ export function IdeaForm() {
           control={form.control}
           name="isCreator"
           render={({ field }) => (
-            <FormItem className="flex">
+            <FormItem className="flex justify-start gap-4 items-center">
               <FormLabel>Is this for Creators</FormLabel>
-              <FormControl>
+              <FormControl className="w-4 h-4 py-0 mt-0">
                 {/* @ts-ignore */}
-                <Input type="checkbox" {...field} />
+                <Input type="checkbox" {...field} style={{ marginTop: 0 }} />
               </FormControl>
               <FormMessage />
             </FormItem>
