@@ -8,12 +8,19 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { IdeaForm } from "../form";
+import { Apple } from "lucide-react";
 
 export function Sidebar() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button
+          variant="secondary"
+          className="flex justify-center items-center gap-1 bg-red-600/25 hover:bg-red-600/50 "
+        >
+          <Apple size={16} />
+          Add your offer
+        </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

@@ -8,16 +8,18 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center space-y-12 p-24">
-        <h2 className="text-4xl">Select Your Role</h2>
-        <Sidebar />
+      <main className="flex min-h-full flex-col items-center space-y-12 p-24">
+        <div className="flex justify-center items-center gap-4">
+          <h2 className="text-xl">Have a new Idea, create an offer</h2>
+          <Sidebar />
+        </div>
         <div className="gap-5 flex ">
-          <Button asChild>
+          {/* <Button asChild>
             <Link href={`/creator`}>Creator</Link>
           </Button>
           <Button>
             <Link href={`/business-owner`}>Business Owner</Link>
-          </Button>
+          </Button> */}
         </div>
       </main>
     </>
