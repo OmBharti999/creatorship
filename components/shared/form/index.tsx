@@ -48,29 +48,14 @@ export function IdeaForm() {
   async function createNewPost(values: z.infer<typeof formSchema>) {
     // async function createNewPost(formData: FormData) {
     console.log("values", values);
-    // const newPost = {
-    //   title: formData.get("title"),
-    //   description: formData.get("description"),
-    //   isCreator: formData.get("isCreator"),
-    // };
-    // const resultVar = formSchema.safeParse(newPost);
-    // if (!resultVar.success) {
-    //   // outputErro message
-    //   console.log("resilt", resultVar.error.issues);
-    //   return;
-    // }
-    // form.handleSubmit(newPost);
-    // await addNewPost(new FormData(values));
+  
     await addNewPost(values);
   }
   // form.formState.
   return (
     <Form {...form}>
       <form
-        // action={createNewPost}
         onSubmit={form.handleSubmit(createNewPost)}
-        // action={form.handleSubmit(createNewPost)}
-        // onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8"
       >
         <FormField
