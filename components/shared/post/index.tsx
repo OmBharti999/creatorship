@@ -17,7 +17,7 @@ export const PostCard = ({
   post: PostWithEmail;
 }) => {
   return (
-    <Card className="w-full">
+    <Card className="w-full 2xl:max-w-[60vw]">
       <CardHeader>
         <h6 className="text-red-500 font-semibold">
           {isCreator ? "Need Creator" : "Let's become partners"}

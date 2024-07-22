@@ -43,7 +43,7 @@ export const PostsWithFilter = ({ posts }: PostWithEmailArray) => {
         </Button>
       </div>
 
-      <div className="gap-5 flex flex-col">
+      <div className="gap-5 flex flex-col justify-start">
         {posts
           ?.filter((item) => {
             if (filterActive) {
