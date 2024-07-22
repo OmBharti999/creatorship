@@ -11,7 +11,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <section className="w-full min-h-screen flex justify-center items-center bg-violet-200">
+    <section className="w-full min-h-screen flex justify-center items-center bg-red-50">
       {children}
     </section>
   );
