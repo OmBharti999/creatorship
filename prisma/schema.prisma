@@ -24,13 +24,15 @@ model Post {
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  clerk_id  String   @unique
-  email     String   @unique
-  firstname String
-  lastname  String?
-  address   Address?
-  posts     Post[]
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  clerk_id   String   @unique
+  email      String   @unique
+  firstname  String
+  lastname   String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+  address    Address?
+  posts      Post[]
 }
 
 model Comment {
