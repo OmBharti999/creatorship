@@ -22,7 +22,7 @@ export const PostCard = ({
     <Card className="w-full">
       <CardHeader>
         <h6 className="text-red-500 font-semibold">
-          {isCreator ? "Need Creator" : "Let's have become partners"}
+          {isCreator ? "Need Creator" : "Let's become partners"}
         </h6>
         <CardTitle className="text-blue-400">{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
