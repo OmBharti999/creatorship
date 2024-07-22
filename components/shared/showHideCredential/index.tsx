@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 
+const body = "I am interested in your idea.";
+
 const ShowHideCredential = ({
   contact,
   postId,
@@ -25,7 +27,7 @@ const ShowHideCredential = ({
           <Link
             href={`mailto:${contact}mailto:${contact}?subject=${encodeURIComponent(
               "Regarding Your Post Id " + postId
-            )}`}
+            )}&body=${encodeURIComponent(body)}`}
           >
             Send a Mail
           </Link>
