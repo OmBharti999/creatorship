@@ -24,7 +24,7 @@ export const addNewPost = async (formData: any) => {
         data: { description, title, isCreator, authorId: user.id },
       });
       return { data: res, status: "success" };
-    }
+    } else throw new Error("Please retry after few minutes");
   } catch (error) {
     console.log("error while in addNewPost", error);
     return { error, status: "falied" };
