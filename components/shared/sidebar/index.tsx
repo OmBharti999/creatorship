@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -9,10 +10,13 @@ import {
 } from "@/components/ui/sheet";
 import { IdeaForm } from "../form";
 import { Apple } from "lucide-react";
+import { useState } from "react";
 
 export function Sidebar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button
           variant="secondary"
@@ -35,7 +39,7 @@ export function Sidebar() {
           </SheetDescription>
         </SheetHeader>
         <hr className="mt-2 mb-6" />
-        <IdeaForm />
+        <IdeaForm closeSidebar={setOpen} />
       </SheetContent>
     </Sheet>
   );

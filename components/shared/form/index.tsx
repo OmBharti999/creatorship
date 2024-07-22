@@ -30,7 +30,11 @@ const formSchema = z.object({
   isCreator: z.boolean(),
 });
 
-export function IdeaForm() {
+export function IdeaForm({
+  closeSidebar,
+}: {
+  closeSidebar: (value: boolean) => void;
+}) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,7 +50,10 @@ export function IdeaForm() {
     // async function createNewPost(formData: FormData) {
     console.log("values", values);
 
-    await addNewPost(values);
+    const postAdded = await addNewPost(values);
+    if (postAdded.data) {
+      closeSidebar(false);
+    }
   }
   // form.formState.
   return (
@@ -95,9 +102,9 @@ export function IdeaForm() {
             </FormItem>
           )}
         />
-        <SheetClose asChild>
-          <Button type="submit">Make it Live</Button>
-        </SheetClose>
+        {/* <SheetClose asChild> */}
+        <Button type="submit">Make it Live</Button>
+        {/* </SheetClose> */}
       </form>
     </Form>
   );
