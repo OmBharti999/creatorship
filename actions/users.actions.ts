@@ -37,3 +37,16 @@ export const deleteUserWithClerkId = async (clerkId: string) => {
     console.log("error while deleteing user", error);
   }
 };
+export const findUserWithClerkId = async (clerkId: string) => {
+  try {
+    // const { id } = Object(userWebhookParams);
+    const user = await prisma.user.findFirst({
+      where: {
+        clerk_id: clerkId,
+      },
+    });
+    return user;
+  } catch (error) {
+    console.log("error while deleteing user", error);
+  }
+};
