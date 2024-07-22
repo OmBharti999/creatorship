@@ -18,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { addNewPost } from "@/actions/posts.actions";
+import { SheetClose } from "@/components/ui/sheet";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -62,6 +63,7 @@ export function IdeaForm() {
     // await addNewPost(new FormData(values));
     await addNewPost(values);
   }
+  // form.formState.
   return (
     <Form {...form}>
       <form
@@ -114,7 +116,9 @@ export function IdeaForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <SheetClose asChild>
+          <Button type="submit">Save Post</Button>
+        </SheetClose>
       </form>
     </Form>
   );

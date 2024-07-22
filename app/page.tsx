@@ -1,10 +1,15 @@
+import { getAllPosts } from "@/actions/posts.actions";
 import Navbar from "@/components/shared/navbar";
+import { PostCard } from "@/components/shared/post";
 import { Sidebar } from "@/components/shared/sidebar";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
+// import { Button } from "@/components/ui/button";
+// import Image from "next/image";
+// import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getAllPosts();
+  console.log("posts", posts);
   return (
     <>
       <Navbar />
@@ -13,13 +18,19 @@ export default function Home() {
           <h2 className="text-xl">Have a new Idea, create an offer</h2>
           <Sidebar />
         </div>
-        <div className="gap-5 flex ">
+        <Separator />
+        <div className="">filter</div>
+
+        <div className="gap-5 flex flex-col">
           {/* <Button asChild>
             <Link href={`/creator`}>Creator</Link>
           </Button>
           <Button>
             <Link href={`/business-owner`}>Business Owner</Link>
           </Button> */}
+          {posts?.map((item) => (
+            <PostCard key={item.id} post={item} />
+          ))}
         </div>
       </main>
     </>

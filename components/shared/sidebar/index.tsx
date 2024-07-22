@@ -13,7 +13,7 @@ import { Apple } from "lucide-react";
 export function Sidebar() {
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger asChild >
         <Button
           variant="secondary"
           className="flex justify-center items-center gap-1 bg-red-600/25 hover:bg-red-600/50 "
