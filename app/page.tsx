@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/actions/posts.actions";
+import { getAllPostsWithUserEmail } from "@/actions/posts.actions";
 import Navbar from "@/components/shared/navbar";
 import { PostCard } from "@/components/shared/post";
 import { Sidebar } from "@/components/shared/sidebar";
@@ -8,7 +8,7 @@ import { Sidebar } from "@/components/shared/sidebar";
 import { Separator } from "@/components/ui/separator";
 
 export default async function Home() {
-  const posts = await getAllPosts();
+  const posts = await getAllPostsWithUserEmail();
   console.log("posts", posts);
   return (
     <>

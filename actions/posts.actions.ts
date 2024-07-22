@@ -33,6 +33,26 @@ export const addNewPost = async (formData: any) => {
   }
 };
 
+export async function getAllPostsWithUserEmail() {
+  try {
+    const posts = await prisma.post.findMany({
+      include: {
+        author: {
+          select: {
+            email: true,
+          },
+        },
+      },
+    });
+    return posts;
+    console.log(posts);
+  } catch (error) {
+    console.error("Error retrieving posts:", error);
+    return [];
+  } finally {
+    await prisma.$disconnect();
+  }
+}
 export const getAllPosts = async () => {
   try {
     const posts = await prisma.post.findMany();
