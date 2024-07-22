@@ -1,6 +1,7 @@
 import { getAllPostsWithUserEmail } from "@/actions/posts.actions";
 import Navbar from "@/components/shared/navbar";
 import { PostCard } from "@/components/shared/post";
+import { PostsWithFilter } from "@/components/shared/postsWithFilter";
 import { Sidebar } from "@/components/shared/sidebar";
 // import { Button } from "@/components/ui/button";
 // import Image from "next/image";
@@ -19,19 +20,7 @@ export default async function Home() {
           <Sidebar />
         </div>
         <Separator />
-        <div className="">filter</div>
-
-        <div className="gap-5 flex flex-col">
-          {/* <Button asChild>
-            <Link href={`/creator`}>Creator</Link>
-          </Button>
-          <Button>
-            <Link href={`/business-owner`}>Business Owner</Link>
-          </Button> */}
-          {posts?.map((item) => (
-            <PostCard key={item.id} post={item} />
-          ))}
-        </div>
+        <PostsWithFilter posts={posts} />
       </main>
     </>
   );
