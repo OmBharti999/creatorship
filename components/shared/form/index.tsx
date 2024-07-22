@@ -39,25 +39,19 @@ export function IdeaForm() {
       isCreator: false,
     },
   });
-  // function onSubmit(values: z.infer<typeof formSchema>) {
-  //   // Do something with the form values.
-  //   // ✅ This will be type-safe and validated.
-  //   console.log(values);
-  //   addNewPost()
-  // }
+
   async function createNewPost(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
     // async function createNewPost(formData: FormData) {
     console.log("values", values);
-  
+
     await addNewPost(values);
   }
   // form.formState.
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(createNewPost)}
-        className="space-y-8"
-      >
+      <form onSubmit={form.handleSubmit(createNewPost)} className="space-y-8">
         <FormField
           control={form.control}
           name="isCreator"
@@ -102,7 +96,7 @@ export function IdeaForm() {
           )}
         />
         <SheetClose asChild>
-          <Button type="submit">Save Post</Button>
+          <Button type="submit">Make it Live</Button>
         </SheetClose>
       </form>
     </Form>

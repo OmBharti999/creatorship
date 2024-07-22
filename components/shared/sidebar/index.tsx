@@ -13,7 +13,7 @@ import { Apple } from "lucide-react";
 export function Sidebar() {
   return (
     <Sheet>
-      <SheetTrigger asChild >
+      <SheetTrigger asChild>
         <Button
           variant="secondary"
           className="flex justify-center items-center gap-1 bg-red-600/25 hover:bg-red-600/50 "
@@ -26,7 +26,11 @@ export function Sidebar() {
         <SheetHeader>
           <SheetTitle>Make a Post</SheetTitle>
           <SheetDescription>
-            Add title and description to your here. Click save when you&apos;re
+            <span className="font-semibold">Check/Uncheck</span> is this for
+            creators, add <span className="font-semibold">title</span> and{" "}
+            <span className="font-semibold">description</span> to create an new
+            offer here. Click{" "}
+            <span className="font-semibold">Make it Live</span> when you&apos;re
             done.
           </SheetDescription>
         </SheetHeader>
