@@ -1,7 +1,7 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
-import { createNewUser } from "@/actions/users.actions";
+import { createNewUser, deleteUserWithClerkId } from "@/actions/users.actions";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
@@ -62,6 +62,8 @@ export async function POST(req: Request) {
     await createNewUser(evt.data);
   } else if (evt.type === "user.deleted") {
     //
+    const id = evt?.data?.id;
+    id && (await deleteUserWithClerkId(id));
   }
 
   return new Response("", { status: 200 });
