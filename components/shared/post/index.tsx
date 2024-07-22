@@ -12,11 +12,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Post } from "@prisma/client";
+import ShowHideCredential from "../showHideCredential";
+
+interface PostWithEmail extends Post {
+  author: { email: string };
+}
 
 export const PostCard = ({
-  post: { authorId, description, id, isCreator, title },
+  post: { author, description, id, isCreator, title },
 }: {
-  post: Post;
+  post: PostWithEmail;
 }) => {
   return (
     <Card className="w-full">
@@ -31,6 +36,7 @@ export const PostCard = ({
       <CardFooter className="flex justify-between">
         {/* <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button> */}
+        <ShowHideCredential contact={author?.email} />
       </CardFooter>
     </Card>
   );
