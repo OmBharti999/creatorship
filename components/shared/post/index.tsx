@@ -36,7 +36,7 @@ export const PostCard = ({
       <CardFooter className="flex justify-between">
         {/* <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button> */}
-        <ShowHideCredential contact={author?.email} />
+        <ShowHideCredential contact={author?.email} postId={id} />
       </CardFooter>
     </Card>
   );
