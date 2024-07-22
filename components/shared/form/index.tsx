@@ -17,13 +17,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { addNewPost } from "@/actions/posts.actions";
 
 const formSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
   }),
   description: z.string().min(120, {
-    message: "Password must be at least 120 characters.",
+    message: "Description must be at least 120 characters.",
   }),
   isCreator: z.boolean(),
 });
@@ -37,15 +38,39 @@ export function IdeaForm() {
       isCreator: false,
     },
   });
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+  // function onSubmit(values: z.infer<typeof formSchema>) {
+  //   // Do something with the form values.
+  //   // ✅ This will be type-safe and validated.
+  //   console.log(values);
+  //   addNewPost()
+  // }
+  async function createNewPost(values: z.infer<typeof formSchema>) {
+    // async function createNewPost(formData: FormData) {
+    console.log("values", values);
+    // const newPost = {
+    //   title: formData.get("title"),
+    //   description: formData.get("description"),
+    //   isCreator: formData.get("isCreator"),
+    // };
+    // const resultVar = formSchema.safeParse(newPost);
+    // if (!resultVar.success) {
+    //   // outputErro message
+    //   console.log("resilt", resultVar.error.issues);
+    //   return;
+    // }
+    // form.handleSubmit(newPost);
+    // await addNewPost(new FormData(values));
+    await addNewPost(values);
   }
-
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        // action={createNewPost}
+        onSubmit={form.handleSubmit(createNewPost)}
+        // action={form.handleSubmit(createNewPost)}
+        // onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="isCreator"
