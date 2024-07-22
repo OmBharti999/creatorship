@@ -25,7 +25,7 @@ export const PostsWithFilter = ({ posts }: PostWithEmailArray) => {
           name="filter-active"
           id="filter-active"
           checked={filterActive}
-          className="w-9"
+          className="max-w-9"
           onChange={() => {
             setFilterActive((p) => !p);
           }}
