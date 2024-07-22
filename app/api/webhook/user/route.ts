@@ -59,7 +59,9 @@ export async function POST(req: Request) {
 
   if (evt.type === "user.created") {
     console.log("userId:", evt.data.id);
-       await createNewUser(evt.data);
+    await createNewUser(evt.data);
+  } else if (evt.type === "user.deleted") {
+    //
   }
 
   return new Response("", { status: 200 });
