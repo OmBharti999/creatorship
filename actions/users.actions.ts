@@ -27,9 +27,10 @@ export const createNewUser = async (userWebhookParams: UserJSON) => {
 export const deleteUserWithClerkId = async (clerkId: string) => {
   try {
     // const { id } = Object(userWebhookParams);
+    const userToBeDeleted = await findUserWithClerkId(clerkId);
     const user = await prisma.user.delete({
       where: {
-        clerk_id: clerkId,
+        id: userToBeDeleted?.id,
       },
     });
     return user;
