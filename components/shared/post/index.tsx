@@ -15,6 +15,7 @@ import type { PostWithEmail } from "@/types";
 import { deletePostWithId } from "@/actions/posts.actions";
 import { toast } from "sonner";
 import { useAppContext } from "@/context/sidebar.provider";
+import { Trash2 } from "lucide-react";
 
 export const PostCard = ({
   post: { author, description, id, isCreator, title },
@@ -47,7 +48,7 @@ export const PostCard = ({
               onClick={deletePost}
               className="bg-red-500 hover:bg-red-700"
             >
-              Delete
+              <Trash2 />
             </Button>
           )}
           {autherMail === author?.email && (
@@ -58,6 +59,7 @@ export const PostCard = ({
                   postToUpdate: { author, description, id, isCreator, title },
                 });
               }}
+              className="bg-blue-500 hover:bg-blue-700"
             >
               Update
             </Button>
