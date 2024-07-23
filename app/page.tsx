@@ -1,16 +1,13 @@
 import { getAllPostsWithUserEmail } from "@/actions/posts.actions";
 import Navbar from "@/components/shared/navbar";
-import { PostCard } from "@/components/shared/post";
 import { PostsWithFilter } from "@/components/shared/postsWithFilter";
 import { Sidebar } from "@/components/shared/sidebar";
-// import { Button } from "@/components/ui/button";
-// import Image from "next/image";
-// import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 
 export default async function Home() {
   const posts = await getAllPostsWithUserEmail();
-  console.log("posts", posts);
+
+  // console.log("posts", posts);
   return (
     <>
       <Navbar />

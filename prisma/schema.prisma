@@ -21,6 +21,8 @@ model Post {
   author      User      @relation(fields: [authorId], references: [id])
   authorId    String    @db.ObjectId
   comments    Comment[]
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt
 }
 
 model User {
@@ -30,7 +32,7 @@ model User {
   firstname  String
   lastname   String?
   created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+  updated_at DateTime @updatedAt
   address    Address?
   posts      Post[]
 }

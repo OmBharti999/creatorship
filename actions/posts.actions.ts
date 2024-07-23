@@ -43,9 +43,11 @@ export async function getAllPostsWithUserEmail() {
           },
         },
       },
+      orderBy: {
+        created_at: "desc",
+      },
     });
     return posts;
-    console.log(posts);
   } catch (error) {
     console.error("Error retrieving posts:", error);
     return [];
@@ -53,6 +55,7 @@ export async function getAllPostsWithUserEmail() {
     await prisma.$disconnect();
   }
 }
+
 export const getAllPosts = async () => {
   try {
     const posts = await prisma.post.findMany();
