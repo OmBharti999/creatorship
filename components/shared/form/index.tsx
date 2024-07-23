@@ -1,9 +1,5 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,10 +12,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { addNewPost, updatePostWithId } from "@/actions/posts.actions";
 import { toast } from "sonner";
 
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppContext } from "@/context/sidebar.provider";
+import { useFormStatus } from "react-dom";
+import { useForm } from "react-hook-form";
+
+import { addNewPost, updatePostWithId } from "@/actions/posts.actions";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -33,6 +34,7 @@ const formSchema = z.object({
 
 export function IdeaForm() {
   const { state, setState } = useAppContext();
+  const { pending } = useFormStatus();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -117,6 +119,7 @@ export function IdeaForm() {
         />
         <Button
           type="submit"
+          disabled={pending}
           className={
             state.postToUpdate?.id
               ? "bg-green-500 hover:bg-green-700"
