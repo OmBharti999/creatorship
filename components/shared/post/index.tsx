@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 
 import {
@@ -13,6 +14,8 @@ import { Button } from "@/components/ui/button";
 import type { PostWithEmail } from "@/types";
 import { deletePostWithId } from "@/actions/posts.actions";
 import { toast } from "sonner";
+import { useAppContext } from "@/context/sidebar.provider";
+import { Trash2 } from "lucide-react";
 
 export const PostCard = ({
   post: { author, description, id, isCreator, title },
@@ -21,6 +24,7 @@ export const PostCard = ({
   post: PostWithEmail;
   autherMail: string | null | undefined;
 }) => {
+  const { state, setState } = useAppContext();
   const deletePost = async () => {
     const deletePost = await deletePostWithId(id);
     if (deletePost?.id) {
@@ -38,12 +42,29 @@ export const PostCard = ({
       </CardHeader>
       <CardFooter className="flex justify-between">
         <ShowHideCredential contact={author?.email} postId={id} />
-        {Boolean(autherMail && autherMail === author?.email) && (
-          <Button onClick={deletePost} className="bg-red-500 hover:bg-red-700">
-            Delete
-          </Button>
-        )}
-        {/* {autherMail === author?.email && <Button>Update</Button>} */}
+        <div className="flex gap-5">
+          {Boolean(autherMail && autherMail === author?.email) && (
+            <Button
+              onClick={deletePost}
+              className="bg-red-500 hover:bg-red-700"
+            >
+              <Trash2 />
+            </Button>
+          )}
+          {autherMail === author?.email && (
+            <Button
+              onClick={() => {
+                setState({
+                  isSidebarOpen: true,
+                  postToUpdate: { author, description, id, isCreator, title },
+                });
+              }}
+              className="bg-blue-500 hover:bg-blue-700"
+            >
+              Update
+            </Button>
+          )}
+        </div>
       </CardFooter>
     </Card>
   );

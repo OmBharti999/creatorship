@@ -79,3 +79,19 @@ export const deletePostWithId = async (id: string) => {
     console.log("Unable to delete post now");
   }
 };
+export const updatePostWithId = async (id: string, data: any) => {
+  try {
+    const posts = await prisma.post.update({
+      where: {
+        id,
+      },
+      data: { ...data },
+    });
+    if (posts) {
+      revalidatePath("/");
+    }
+    return posts;
+  } catch (error) {
+    console.log("Unable to delete post now");
+  }
+};
