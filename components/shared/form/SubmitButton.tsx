@@ -4,7 +4,7 @@ import { useFormStatus } from "react-dom";
 
 export const SubmitButton = ({ id }: { id: undefined | string }) => {
   const { pending } = useFormStatus();
-  console.log("pending", pending);
+//   console.log("pending", pending);
   const submitButtonText = id ? "Update Offer" : "Make it Live";
   return (
     <Button

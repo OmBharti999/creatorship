@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 import { useState } from "react";
-import { useAppContext } from "@/context/sidebar.provider";
 
 import type { PostWithEmailArray } from "@/types";
 
@@ -16,9 +15,7 @@ interface Props extends PostWithEmailArray {
 }
 
 export const PostsWithFilter = ({ posts, autherMail }: Props) => {
-  const { state, setState } = useAppContext();
   const [filterActive, setFilterActive] = useState(false);
-  console.log(state, setState);
   const [filter, setFilter] = useState<filterType>("creators" as filterType);
   return (
     <>

@@ -15,10 +15,10 @@ export const addNewPost = async (formData: any) => {
       throw new Error("You must be signed in to add an post");
     }
 
-    console.log("add item server action", formData);
+    // console.log("add item server action", formData);
     const { isCreator, description, title } = formData;
-    console.log("from server action");
-    console.log(isCreator, description, title, userId);
+    // console.log("from server action");
+    // console.log(isCreator, description, title, userId);
     const user = await findUserWithClerkId(userId);
     if (user) {
       const res = await prisma.post.create({
