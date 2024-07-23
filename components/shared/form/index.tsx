@@ -65,6 +65,9 @@ export function IdeaForm() {
       }
     }
   }
+  const submitButtonText = state.postToUpdate?.id
+    ? "Update Offer"
+    : "Make it Live";
 
   return (
     <Form {...form}>
@@ -122,11 +125,11 @@ export function IdeaForm() {
           disabled={pending}
           className={
             state.postToUpdate?.id
-              ? "bg-green-500 hover:bg-green-700"
-              : "bg-cyan-500 hover:bg-cyan-700"
+              ? "bg-green-500 hover:bg-green-700 disabled:bg-green-200"
+              : "bg-cyan-500 hover:bg-cyan-700 disabled:bg-blue-200"
           }
         >
-          {state.postToUpdate?.id ? "Update Offer" : "Make it Live"}
+          {pending ? "please wait" : submitButtonText}
         </Button>
       </form>
     </Form>
