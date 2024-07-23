@@ -16,9 +16,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { cn } from "@/lib/utils";
 import { addNewPost } from "@/actions/posts.actions";
-import { SheetClose } from "@/components/ui/sheet";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -51,11 +50,13 @@ export function IdeaForm({
     console.log("values", values);
 
     const postAdded = await addNewPost(values);
-    if (postAdded.data) {
+
+    if (postAdded?.status === "success") {
+      toast.success("Offer has been created.");
       closeSidebar(false);
     }
   }
-  // form.formState.
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(createNewPost)} className="space-y-8">
@@ -102,9 +103,7 @@ export function IdeaForm({
             </FormItem>
           )}
         />
-        {/* <SheetClose asChild> */}
         <Button type="submit">Make it Live</Button>
-        {/* </SheetClose> */}
       </form>
     </Form>
   );
