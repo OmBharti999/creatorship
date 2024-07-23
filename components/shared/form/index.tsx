@@ -115,7 +115,14 @@ export function IdeaForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-green-500 hover:bg-green-700">
+        <Button
+          type="submit"
+          className={
+            state.postToUpdate?.id
+              ? "bg-green-500 hover:bg-green-700"
+              : "bg-cyan-500 hover:bg-cyan-700"
+          }
+        >
           {state.postToUpdate?.id ? "Update Offer" : "Make it Live"}
         </Button>
       </form>
