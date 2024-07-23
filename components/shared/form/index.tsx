@@ -19,6 +19,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { addNewPost } from "@/actions/posts.actions";
 import { toast } from "sonner";
 
+import { useAppContext } from "@/context/sidebar.provider";
+
 const formSchema = z.object({
   title: z.string().min(2, {
     message: "Title must be at least 2 characters.",
@@ -29,11 +31,8 @@ const formSchema = z.object({
   isCreator: z.boolean(),
 });
 
-export function IdeaForm({
-  closeSidebar,
-}: {
-  closeSidebar: (value: boolean) => void;
-}) {
+export function IdeaForm() {
+  const { state, setState } = useAppContext();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,7 +52,7 @@ export function IdeaForm({
 
     if (postAdded?.status === "success") {
       toast.success("Offer has been created.");
-      closeSidebar(false);
+      setState({ ...state, isSidebarOpen: false });
     }
   }
 

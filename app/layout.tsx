@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/sonner";
+import { AppWrapper } from "@/context/sidebar.provider";
 
 import type { Metadata } from "next";
 
@@ -20,10 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-        <Toaster />
-      </html>
+      <AppWrapper>
+        <html lang="en">
+          <body className={inter.className}>{children}</body>
+          <Toaster />
+        </html>
+      </AppWrapper>
     </ClerkProvider>
   );
 }

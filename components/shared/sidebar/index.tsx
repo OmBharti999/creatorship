@@ -10,13 +10,19 @@ import {
 } from "@/components/ui/sheet";
 import { IdeaForm } from "../form";
 import { Plus } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppContext } from "@/context/sidebar.provider";
 
 export function Sidebar() {
-  const [open, setOpen] = useState(false);
+  const { state, setState } = useAppContext();
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
+    <Sheet
+      open={state.isSidebarOpen}
+      onOpenChange={() =>
+        setState((p: any) => ({ ...p, isSidebarOpen: !p.isSidebarOpen }))
+      }
+    >
       <SheetTrigger asChild>
         <Button
           variant="secondary"
@@ -39,7 +45,7 @@ export function Sidebar() {
           </SheetDescription>
         </SheetHeader>
         <hr className="mt-2 mb-6" />
-        <IdeaForm closeSidebar={setOpen} />
+        <IdeaForm />
       </SheetContent>
     </Sheet>
   );
