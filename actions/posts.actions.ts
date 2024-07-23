@@ -64,3 +64,18 @@ export const getAllPosts = async () => {
     console.log("Unable to fetch post now");
   }
 };
+export const deletePostWithId = async (id: string) => {
+  try {
+    const posts = await prisma.post.delete({
+      where: {
+        id,
+      },
+    });
+    if (posts) {
+      revalidatePath("/");
+    }
+    return posts;
+  } catch (error) {
+    console.log("Unable to delete post now");
+  }
+};
