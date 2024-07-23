@@ -38,12 +38,17 @@ export const PostCard = ({
       </CardHeader>
       <CardFooter className="flex justify-between">
         <ShowHideCredential contact={author?.email} postId={id} />
-        {Boolean(autherMail && autherMail === author?.email) && (
-          <Button onClick={deletePost} className="bg-red-500 hover:bg-red-700">
-            Delete
-          </Button>
-        )}
-        {/* {autherMail === author?.email && <Button>Update</Button>} */}
+        <div className="flex gap-5">
+          {Boolean(autherMail && autherMail === author?.email) && (
+            <Button
+              onClick={deletePost}
+              className="bg-red-500 hover:bg-red-700"
+            >
+              Delete
+            </Button>
+          )}
+          {autherMail === author?.email && <Button>Update</Button>}
+        </div>
       </CardFooter>
     </Card>
   );

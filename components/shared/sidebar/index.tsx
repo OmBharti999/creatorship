@@ -9,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { IdeaForm } from "../form";
-import { Apple, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 
 export function Sidebar() {
