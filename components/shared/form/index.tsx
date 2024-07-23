@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { addNewPost } from "@/actions/posts.actions";
+import { addNewPost, updatePostWithId } from "@/actions/posts.actions";
 import { toast } from "sonner";
 
 import { useAppContext } from "@/context/sidebar.provider";
@@ -36,9 +36,9 @@ export function IdeaForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      title: "",
-      description: "",
-      isCreator: false,
+      title: state.postToUpdate?.title ?? "",
+      description: state.postToUpdate?.description ?? "",
+      isCreator: state.postToUpdate?.isCreator ?? false,
     },
   });
 
@@ -47,12 +47,20 @@ export function IdeaForm() {
     // ✅ This will be type-safe and validated.
     // async function createNewPost(formData: FormData) {
     console.log("values", values);
+    const id = state.postToUpdate?.id;
+    if (id) {
+      const updatePost = await updatePostWithId(id, values);
+      if (updatePost?.id) {
+        toast.success("Offer has been updated.");
+        setState({ postToUpdate: {}, isSidebarOpen: false });
+      }
+    } else {
+      const postAdded = await addNewPost(values);
 
-    const postAdded = await addNewPost(values);
-
-    if (postAdded?.status === "success") {
-      toast.success("Offer has been created.");
-      setState({ ...state, isSidebarOpen: false });
+      if (postAdded?.status === "success") {
+        toast.success("Offer has been created.");
+        setState({ ...state, isSidebarOpen: false });
+      }
     }
   }
 
@@ -67,7 +75,12 @@ export function IdeaForm() {
               <FormLabel>Is this for Creators</FormLabel>
               <FormControl className="w-4 h-4 py-0 mt-0">
                 {/* @ts-ignore */}
-                <Input type="checkbox" {...field} style={{ marginTop: 0 }} />
+                <Input
+                  type="checkbox"
+                  {...field}
+                  defaultChecked={state.postToUpdate?.isCreator}
+                  style={{ marginTop: 0 }}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>

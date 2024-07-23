@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 
 const defaultValue = {
   isSidebarOpen: false,
-  postToUpdate: {},
+  postToUpdate: { title: "", description: "", isCreator: false, id: "" },
 };
 
 const AppContext = createContext({

@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 
 import {
@@ -13,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import type { PostWithEmail } from "@/types";
 import { deletePostWithId } from "@/actions/posts.actions";
 import { toast } from "sonner";
+import { useAppContext } from "@/context/sidebar.provider";
 
 export const PostCard = ({
   post: { author, description, id, isCreator, title },
@@ -21,6 +23,7 @@ export const PostCard = ({
   post: PostWithEmail;
   autherMail: string | null | undefined;
 }) => {
+  const { state, setState } = useAppContext();
   const deletePost = async () => {
     const deletePost = await deletePostWithId(id);
     if (deletePost?.id) {
@@ -47,7 +50,18 @@ export const PostCard = ({
               Delete
             </Button>
           )}
-          {autherMail === author?.email && <Button>Update</Button>}
+          {autherMail === author?.email && (
+            <Button
+              onClick={() => {
+                setState({
+                  isSidebarOpen: true,
+                  postToUpdate: { author, description, id, isCreator, title },
+                });
+              }}
+            >
+              Update
+            </Button>
+          )}
         </div>
       </CardFooter>
     </Card>
