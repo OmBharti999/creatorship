@@ -17,10 +17,11 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppContext } from "@/context/sidebar.provider";
-import { useFormStatus } from "react-dom";
+// import { useFormStatus } from "react-dom";
 import { useForm } from "react-hook-form";
 
 import { addNewPost, updatePostWithId } from "@/actions/posts.actions";
+import { SubmitButton } from "./SubmitButton";
 
 const formSchema = z.object({
   title: z.string().min(2, {
@@ -34,7 +35,7 @@ const formSchema = z.object({
 
 export function IdeaForm() {
   const { state, setState } = useAppContext();
-  const { pending } = useFormStatus();
+  // const { pending } = useFormStatus();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -65,13 +66,17 @@ export function IdeaForm() {
       }
     }
   }
-  const submitButtonText = state.postToUpdate?.id
-    ? "Update Offer"
-    : "Make it Live";
+  // const submitButtonText = state.postToUpdate?.id
+  //   ? "Update Offer"
+  //   : "Make it Live";
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(createNewPost)} className="space-y-8">
+      <form
+        // @ts-ignore
+        action={form.handleSubmit(createNewPost)}
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="isCreator"
@@ -120,7 +125,7 @@ export function IdeaForm() {
             </FormItem>
           )}
         />
-        <Button
+        {/* <Button
           type="submit"
           disabled={pending}
           className={
@@ -130,8 +135,27 @@ export function IdeaForm() {
           }
         >
           {pending ? "please wait" : submitButtonText}
-        </Button>
+        </Button> */}
+        <SubmitButton id={state?.postToUpdate?.id} />
       </form>
     </Form>
   );
 }
+
+// const SubmitButton = ({ id }: { id: undefined | string }) => {
+//   const { pending } = useFormStatus();
+//   const submitButtonText = id ? "Update Offer" : "Make it Live";
+//   return (
+//     <Button
+//       type="submit"
+//       disabled={pending}
+//       className={
+//         id
+//           ? "bg-green-500 hover:bg-green-700 disabled:bg-green-200"
+//           : "bg-cyan-500 hover:bg-cyan-700 disabled:bg-blue-200"
+//       }
+//     >
+//       {pending ? "please wait" : submitButtonText}
+//     </Button>
+//   );
+// };
