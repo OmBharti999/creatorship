@@ -3,11 +3,14 @@ import Navbar from "@/components/shared/navbar";
 import { PostsWithFilter } from "@/components/shared/postsWithFilter";
 import { Sidebar } from "@/components/shared/sidebar";
 import { Separator } from "@/components/ui/separator";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default async function Home() {
   const posts = await getAllPostsWithUserEmail();
 
-  // console.log("posts", posts);
+  const user = await currentUser();
+  // email
+  const currentUserEmailID = user?.emailAddresses[0]?.emailAddress;
   return (
     <>
       <Navbar />
@@ -17,7 +20,7 @@ export default async function Home() {
           <Sidebar />
         </div>
         <Separator />
-        <PostsWithFilter posts={posts} />
+        <PostsWithFilter posts={posts} autherMail={currentUserEmailID} />
       </main>
     </>
   );

@@ -1,14 +1,19 @@
 "use client";
 
-import { PostWithEmailArray } from "@/types";
 import { PostCard } from "../post";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+
+import type { PostWithEmailArray } from "@/types";
 
 type filterType = "creators" | "business-owners";
 
-export const PostsWithFilter = ({ posts }: PostWithEmailArray) => {
+interface Props extends PostWithEmailArray {
+  autherMail: string | undefined;
+}
+
+export const PostsWithFilter = ({ posts, autherMail }: Props) => {
   const [filterActive, setFilterActive] = useState(false);
   const [filter, setFilter] = useState<filterType>("creators" as filterType);
   return (
@@ -52,7 +57,7 @@ export const PostsWithFilter = ({ posts }: PostWithEmailArray) => {
             } else return item;
           })
           .map((item) => (
-            <PostCard key={item.id} post={item} />
+            <PostCard key={item.id} post={item} autherMail={autherMail} />
           ))}
       </div>
     </>

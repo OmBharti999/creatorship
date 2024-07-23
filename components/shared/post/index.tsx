@@ -8,13 +8,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ShowHideCredential from "../showHideCredential";
+import { Button } from "@/components/ui/button";
 
 import type { PostWithEmail } from "@/types";
 
 export const PostCard = ({
   post: { author, description, id, isCreator, title },
+  autherMail,
 }: {
   post: PostWithEmail;
+  autherMail: string | null | undefined;
 }) => {
   return (
     <Card className="w-full 2xl:max-w-[60vw]">
@@ -27,6 +30,8 @@ export const PostCard = ({
       </CardHeader>
       <CardFooter className="flex justify-between">
         <ShowHideCredential contact={author?.email} postId={id} />
+        {autherMail === author?.email && <Button>Delete</Button>}
+        {/* {autherMail === author?.email && <Button>Update</Button>} */}
       </CardFooter>
     </Card>
   );
