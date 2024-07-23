@@ -20,7 +20,10 @@ export function Sidebar() {
     <Sheet
       open={state.isSidebarOpen}
       onOpenChange={() =>
-        setState((p: any) => ({ ...p, isSidebarOpen: !p.isSidebarOpen }))
+        setState((p: any) => ({
+          isSidebarOpen: !p.isSidebarOpen,
+          postToUpdate: {},
+        }))
       }
     >
       <SheetTrigger asChild>
