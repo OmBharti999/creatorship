@@ -51,7 +51,7 @@ export const PostsWithFilter = ({ posts, autherMail }: Props) => {
         </Button>
       </div>
 
-      <div className="gap-5 flex flex-col justify-start">
+      <div className="gap-5 flex flex-col justify-start w-full">
         {posts
           ?.filter((item) => {
             if (filterActive) {

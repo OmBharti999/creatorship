@@ -39,17 +39,19 @@ export const PostCard = ({
     }
   };
   return (
-    <Card className="w-full 2xl:max-w-[60vw] max-lg:max-w-sm max-sm:max-w-[320px]">
+    <Card className="lg:w-full mx-auto">
       <CardHeader>
         <h6 className="text-red-500 font-semibold max-sm:text-sm">
           {isCreator ? "Need Creator" : "Let's become partners"}
         </h6>
-        <CardTitle className="text-blue-400 max-sm:text-lg">{title}</CardTitle>
-        <CardDescription className="max-sm:text-xs">
+        <CardTitle className="text-blue-400 max-sm:text-lg break-all">
+          {title}
+        </CardTitle>
+        <CardDescription className="max-sm:text-xs break-all">
           {description}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-between flex-wrap gap-2">
         <ShowHideCredential contact={author?.email} postId={id} />
         <div className="flex gap-5 max-sm:gap-1">
           {Boolean(autherMail && autherMail === author?.email) && (
