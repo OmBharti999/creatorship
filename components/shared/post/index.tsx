@@ -46,7 +46,7 @@ export const PostCard = ({
             <h6 className="text-red-500 font-semibold max-sm:text-sm">
               {isCreator ? "Need Creator" : "Let's become partners"}
             </h6>
-            <CardTitle className="text-blue-400 max-sm:text-base">
+            <CardTitle className="text-blue-400 max-sm:text-lg">
               {title}
             </CardTitle>
             <CardDescription className="max-sm:text-xs">

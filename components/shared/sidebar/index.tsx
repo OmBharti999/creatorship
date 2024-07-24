@@ -12,6 +12,12 @@ import { IdeaForm } from "../form";
 import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAppContext } from "@/context/sidebar.provider";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Sidebar() {
   const { state, setState } = useAppContext();
@@ -31,8 +37,17 @@ export function Sidebar() {
           variant="secondary"
           className="flex justify-center items-center gap-1 bg-blue-500 hover:bg-blue-700 text-white font-semibold "
         >
-          <Plus size={16} />
-          Create offer
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Plus size={16} />
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Create Offer</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <span className="max-lg:hidden">Create offer</span>
         </Button>
       </SheetTrigger>
       <SheetContent>

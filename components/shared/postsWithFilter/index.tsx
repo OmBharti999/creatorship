@@ -19,10 +19,10 @@ export const PostsWithFilter = ({ posts, autherMail }: Props) => {
   const [filter, setFilter] = useState<filterType>("creators" as filterType);
   return (
     <>
-      <div className="flex gap-5 items-center w-full">
+      <div className="flex gap-5 items-center w-full font-semibold max-sm:text-sm">
         <h5>
           Filters{" "}
-          <span className="inline-block w-14">
+          <span className="inline-block w-14 ">
             {!filterActive ? "disabled" : "active"}
           </span>
         </h5>
@@ -44,6 +44,8 @@ export const PostsWithFilter = ({ posts, autherMail }: Props) => {
               setFilter("creators");
             }
           }}
+          className="max-sm:text-xs max-sm:py-2 max-sm:px-3"
+          size={"sm"}
         >
           Show for {filter} Only
         </Button>
