@@ -1,5 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Mail, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -21,7 +28,20 @@ const ShowHideCredential = ({
         }}
         className="max-sm:text-xs"
       >
-        {showCrentials ? contact : "Show Author Mail Id"}
+        {" "}
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <Mail />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p> {showCrentials ? contact : "Show Author Mail Id"}</p>
+            </TooltipContent>{" "}
+          </Tooltip>
+        </TooltipProvider>
+        <span className="max-md:hidden ml-2">
+          {showCrentials ? contact : "Show Author Mail Id"}
+        </span>
       </Button>
       {showCrentials && (
         <Button asChild className="bg-blue-500 hover:bg-blue-600">
@@ -31,7 +51,18 @@ const ShowHideCredential = ({
             )}&body=${encodeURIComponent(body)}`}
             className="max-sm:text-xs"
           >
-            Send a Mail
+            {" "}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Send />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Send a Mail</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <span className="max-md:hidden ml-2">Send a Mail</span>
           </Link>
         </Button>
       )}
