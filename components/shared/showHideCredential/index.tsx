@@ -14,11 +14,12 @@ const ShowHideCredential = ({
 }) => {
   const [showCrentials, setShowCredentails] = useState(false);
   return (
-    <div className=" flex gap-5 items-center">
+    <div className=" flex gap-5 items-center ">
       <Button
         onClick={() => {
           setShowCredentails(!showCrentials);
         }}
+        className="max-sm:text-xs"
       >
         {showCrentials ? contact : "Show Author Mail Id"}
       </Button>
@@ -28,6 +29,7 @@ const ShowHideCredential = ({
             href={`mailto:${contact}mailto:${contact}?subject=${encodeURIComponent(
               "Regarding Your Post Id " + postId
             )}&body=${encodeURIComponent(body)}`}
+            className="max-sm:text-xs"
           >
             Send a Mail
           </Link>

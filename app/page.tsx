@@ -14,9 +14,11 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-full flex-col items-center space-y-12 p-24">
+      <main className="flex min-h-full flex-col items-center space-y-12 p-10 lg:p-24 w-full">
         <div className="flex justify-center items-center gap-4">
-          <h2 className="text-xl">Have a new Idea, create an offer</h2>
+          <h2 className="text-xl max-sm:text-base max-lg:text-lg">
+            Have a new Idea, create an offer
+          </h2>
           <Sidebar />
         </div>
         <Separator />

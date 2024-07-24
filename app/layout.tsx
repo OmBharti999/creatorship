@@ -20,13 +20,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <AppWrapper>
-        <html lang="en">
-          <body className={inter.className}>{children}</body>
-          <Toaster />
-        </html>
-      </AppWrapper>
-    </ClerkProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <ClerkProvider>
+          <AppWrapper>
+            {children}
+            <Toaster />
+          </AppWrapper>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
