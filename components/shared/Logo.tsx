@@ -23,7 +23,9 @@ export const LogoWithName = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("flex gap-3 items-center font-bold", className)}>
+    <div
+      className={cn("flex gap-3 items-center font-bold text-white", className)}
+    >
       <Logo size={size} /> Creatorship.io
     </div>
   );

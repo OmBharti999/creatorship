@@ -6,28 +6,29 @@ import Link from "next/link";
 import { HeroScrollDemo } from "./shared/ScollContainer";
 import { FlipWordsComponent } from "./shared/FlipWords";
 import { Heart, LucideMove } from "lucide-react";
+import Navbar from "./shared/navbar";
 
-export const Nav = () => {
-  return (
-    <nav className="flex gap-3 text-xl font-bold items-center justify-between">
-      <LogoWithName />
-      <div className="space-x-4">
-        <Button
-          asChild
-          className="bg-violet-700 hover:bg-violet-800 hover:text-violet-100 transition-all font-bold"
-        >
-          <Link href="/sign-up">Sign Up</Link>
-        </Button>
-        <Button
-          asChild
-          className="bg-white text-violet-800 hover:bg-violet-100 hover:text-violet-900 transition-all font-bold max-[450px]:hidden"
-        >
-          <Link href="/sign-in">Sign In</Link>
-        </Button>
-      </div>
-    </nav>
-  );
-};
+// export const Nav = () => {
+//   return (
+//     <nav className="flex gap-3 text-xl font-bold items-center justify-between">
+//       <LogoWithName />
+//       <div className="space-x-4">
+//         <Button
+//           asChild
+//           className="bg-violet-700 hover:bg-violet-800 hover:text-violet-100 transition-all font-bold"
+//         >
+//           <Link href="/sign-up">Sign Up</Link>
+//         </Button>
+//         <Button
+//           asChild
+//           className="bg-white text-violet-800 hover:bg-violet-100 hover:text-violet-900 transition-all font-bold max-[450px]:hidden"
+//         >
+//           <Link href="/sign-in">Sign In</Link>
+//         </Button>
+//       </div>
+//     </nav>
+//   );
+// };
 
 export const HeroSection = () => {
   return (
@@ -263,7 +264,7 @@ export const HomeDisplay = () => {
   return (
     <div className="bg-[#000000] text-white min-h-screen p-8 pt-6">
       {/* nav */}
-      <Nav />
+      <Navbar />
       {/* Hero section */}
       <HeroSection />
       <HeroScrollDemo />

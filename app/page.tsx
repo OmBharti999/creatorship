@@ -15,7 +15,7 @@ async function HomeComponent() {
   const currentUserEmailID = user?.emailAddresses[0]?.emailAddress;
   return (
     <>
-      <Navbar />
+      <Navbar className="text-white" />
       <main className="flex min-h-full flex-col items-center space-y-12 p-10 lg:p-24 w-full">
         <div className="flex justify-center items-center gap-4">
           <h2 className="text-xl max-sm:text-base max-lg:text-lg font-semibold text-blue-900">
