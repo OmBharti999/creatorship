@@ -78,15 +78,17 @@ export const ContentSection = () => {
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
       {features.map(({ id, featureDescription, featureTitle, icon }) => (
         <section
-          className=" bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto"
+          className=" bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
           key={id}
         >
-          <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-3xl">
+          <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-xl">
             <Image src={icon} alt={featureTitle} width={100} height={100} />
           </div>
-          <div className="p-6 text-black">
-            <h2 className="text-2xl font-semibold mb-4">{featureTitle}</h2>
-            <p className="font-semibold text-gray-600">{featureDescription}</p>
+          <div className="p-5 text-black">
+            <h2 className="text-xl font-bold">{featureTitle}</h2>
+            <p className="font-semibold text-gray-600 text-sm">
+              {featureDescription}
+            </p>
           </div>
         </section>
       ))}
