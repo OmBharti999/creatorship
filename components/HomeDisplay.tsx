@@ -8,6 +8,7 @@ import { FlipWordsComponent } from "./shared/FlipWords";
 import { Heart, LucideMove } from "lucide-react";
 import Navbar from "./shared/navbar";
 import { GlobeDemo } from "./shared/GithubGlobe";
+import { Insomenia } from "./shared/Insomenia";
 
 // export const Nav = () => {
 //   return (
@@ -275,6 +276,7 @@ export const HomeDisplay = () => {
       <Pricing />
       {/* Footer */}
       <GlobeDemo />
+      <Insomenia />
       <Footer />
       {/* <div className="flex justify-center mt-12">
         <img
