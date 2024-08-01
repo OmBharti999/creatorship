@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const HomeDisplay = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen p-8">
+    <div className="bg-[#000000] text-white min-h-screen p-8 pt-6">
       {/* nav */}
       <nav className="flex gap-3 text-xl font-bold items-center justify-between">
         <LogoWithName />
@@ -19,19 +19,32 @@ export const HomeDisplay = () => {
           </Button>
           <Button
             asChild
-            className="bg-white text-violet-800 hover:bg-violet-100 hover:text-violet-900 transition-all font-bold"
+            className="bg-white text-violet-800 hover:bg-violet-100 hover:text-violet-900 transition-all font-bold max-[450px]:hidden"
           >
             <Link href="/sign-in">Sign In</Link>
           </Button>
         </div>
       </nav>
       {/* Hero section */}
-      <section className="text-center">
-        <h1 className="text-5xl font-bold mb-4">Build. Contribute. Evolve.</h1>
-        <p className="text-lg">
-          Shape the merchant experience for Shopify&apos;s core product, the
-          admin.
-        </p>
+      <section className="mt-9 flex min-h-[60vh] xl:min-h-[80vh] mx-auto bg-hero-pattern bg-cover bg-no-repeat ">
+        <div className="bg-black bg-opacity-50 w-full flex justify-center flex-col items-center">
+          <h1 className="text-5xl xl:text-6xl font-bold mb-4">
+            Build. Contribute. Evolve.
+          </h1>
+          <p className="text-lg">
+            Shape the merchant and creators experience for the first time&apos;s core product, the
+            admin.
+          </p>
+        </div>
+        {/* <div className="">
+          <Image
+            src="/hero-img.avif"
+            alt="hero image"
+            width={400}
+            height={400}
+            className=" "
+          />
+        </div> */}
       </section>
 
       {/* Content Sections */}
