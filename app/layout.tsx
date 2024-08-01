@@ -6,7 +6,6 @@ import { AppWrapper } from "@/context/sidebar.provider";
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { Tooltip, TooltipProvider } from "@/components/ui/tooltip";
 
 const inter = Inter({ subsets: ["latin"] });
 
