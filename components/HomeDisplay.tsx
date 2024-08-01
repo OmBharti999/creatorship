@@ -75,10 +75,10 @@ export const ContentSection = () => {
   ];
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
+    <section className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
       {features.map(({ id, featureDescription, featureTitle, icon }) => (
         <section
-          className=" bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
+          className="content-card bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
           key={id}
         >
           <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-xl">

@@ -67,3 +67,6 @@
     @apply bg-background text-foreground;
   }
 }
+.content-card-section:hover .content-card:not(:hover) {
+  @apply scale-90 opacity-60;
+}
