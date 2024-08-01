@@ -86,7 +86,7 @@ export const ContentSection = () => {
             className="content-card bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
             key={id}
           >
-            <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-xl">
+            <div className="w-full bg-black/90 flex justify-center py-16 rounded-ee-xl">
               <Image src={icon} alt={featureTitle} width={100} height={100} />
             </div>
             <div className="p-5 text-black">
