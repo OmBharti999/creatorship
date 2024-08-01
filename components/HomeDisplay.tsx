@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { Fragment } from "react";
 import Logo, { LogoWithName } from "./shared/Logo";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export const HeroSection = () => {
           Build. Contribute. Evolve.
         </h1>
         <p className="text-lg">
-          Shape the merchant and creators experience for the first time&apos;s
+          Shape the merchant and creators experience for the first time as a
           core product, the admin.
         </p>
       </div>
@@ -43,42 +43,53 @@ export const HeroSection = () => {
 };
 
 export const ContentSection = () => {
+  const features = [
+    {
+      id: 1,
+      icon: "/features/creators.svg",
+      featureTitle: "Connect with Entrepreneurs",
+      featureDescription:
+        "Discover innovative business leaders looking for creative partners to collaborate on groundbreaking projects.",
+    },
+    {
+      id: 2,
+      icon: "/features/business.svg",
+      featureTitle: "Share Equity Seamlessly",
+      featureDescription:
+        "Easily negotiate and share equity with your partners, ensuring a fair and transparent partnership from the start.",
+    },
+    {
+      id: 3,
+      icon: "/features/mix.svg",
+      featureTitle: "Build Lasting Partnerships",
+      featureDescription:
+        "Join forces with like-minded individuals to create successful ventures and grow your professional network.",
+    },
+    {
+      id: 4,
+      icon: "/features/edit.svg",
+      featureTitle: "Showcase Your Talents",
+      featureDescription:
+        "Display your skills and portfolio to attract entrepreneurs seeking unique talents and creative solutions.",
+    },
+  ];
+
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-12 ">
-      {/* Foundations */}
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Foundations</h2>
-        <p className="text-gray-400">
-          Fundamental design guidance for creating quality admin experiences.
-        </p>
-      </div>
-
-      {/* Components */}
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Components</h2>
-        <p className="text-gray-400">
-          Reusable elements and styles, packaged through code, for building
-          admin interfaces.
-        </p>
-      </div>
-
-      {/* Tokens */}
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Tokens</h2>
-        <p className="text-gray-400">
-          Coded names that represent design decisions for color, spacing,
-          typography, and more.
-        </p>
-      </div>
-
-      {/* Icons */}
-      <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Icons</h2>
-        <p className="text-gray-400">
-          Over 400 carefully designed icons focused on commerce and
-          entrepreneurship.
-        </p>
-      </div>
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
+      {features.map(({ id, featureDescription, featureTitle, icon }) => (
+        <section
+          className=" bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto"
+          key={id}
+        >
+          <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-3xl">
+            <Image src={icon} alt={featureTitle} width={100} height={100} />
+          </div>
+          <div className="p-6 text-black">
+            <h2 className="text-2xl font-semibold mb-4">{featureTitle}</h2>
+            <p className="font-semibold text-gray-600">{featureDescription}</p>
+          </div>
+        </section>
+      ))}
     </section>
   );
 };
