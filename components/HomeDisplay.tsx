@@ -28,7 +28,7 @@ export const Nav = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="mt-9 flex min-h-[60vh] xl:min-h-[80vh] mx-auto bg-hero-pattern bg-cover bg-no-repeat ">
+    <section className="mt-5 flex min-h-[60vh] xl:min-h-[80vh] mx-auto bg-hero-pattern bg-cover bg-no-repeat ">
       <div className="bg-black bg-opacity-50 w-full flex justify-center flex-col items-center">
         <h1 className="text-5xl xl:text-6xl font-bold mb-4">
           Build. Contribute. Evolve.
@@ -44,7 +44,7 @@ export const HeroSection = () => {
 
 export const ContentSection = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-12 ">
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 my-12 ">
       {/* Foundations */}
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold mb-4">Foundations</h2>
@@ -79,7 +79,7 @@ export const ContentSection = () => {
           entrepreneurship.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 
