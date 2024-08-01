@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import Logo, { LogoWithName } from "./shared/Logo";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { HeroScrollDemo } from "./shared/ScollContainer";
 
 export const Nav = () => {
   return (
@@ -262,6 +263,7 @@ export const HomeDisplay = () => {
       <Nav />
       {/* Hero section */}
       <HeroSection />
+      <HeroScrollDemo />
       {/* Content Sections */}
       <ContentSection />
       {/* pricing */}
