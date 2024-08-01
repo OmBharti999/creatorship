@@ -72,13 +72,13 @@ export const ContentSection = () => {
   ];
 
   return (
-    <>
+    <section className="bg-neutral-400 py-14">
       <h4 className="text-4xl text-center font-semibold">Features</h4>
       <h6 className="text-lg text-center flex gap-2 justify-center items-center mt-2">
         Why thousands of People <Heart />
         Love us
       </h6>
-      <section className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
+      <div className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 my-12 mx-auto max-w-[1400px]">
         {features.map(({ id, featureDescription, featureTitle, icon }) => (
           <section
             className="content-card bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
@@ -95,8 +95,8 @@ export const ContentSection = () => {
             </div>
           </section>
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
