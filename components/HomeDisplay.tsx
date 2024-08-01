@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { HeroScrollDemo } from "./shared/ScollContainer";
 import { FlipWordsComponent } from "./shared/FlipWords";
+import { Heart, LucideMove } from "lucide-react";
 
 export const Nav = () => {
   return (
@@ -72,7 +73,11 @@ export const ContentSection = () => {
 
   return (
     <>
-      <h4 className="text-3xl text-center">Features</h4>
+      <h4 className="text-4xl text-center font-semibold">Features</h4>
+      <h6 className="text-lg text-center flex gap-2 justify-center items-center mt-2">
+        Why thousands of People <Heart />
+        Love us
+      </h6>
       <section className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
         {features.map(({ id, featureDescription, featureTitle, icon }) => (
           <section
