@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -14,9 +15,15 @@ const Logo = ({ size = 35 }: { size?: number }) => {
   );
 };
 
-export const LogoWithName = ({ size = 35 }: { size?: number }) => {
+export const LogoWithName = ({
+  size = 35,
+  className,
+}: {
+  size?: number;
+  className?: string;
+}) => {
   return (
-    <div className="flex gap-3 items-center font-bold">
+    <div className={cn("flex gap-3 items-center font-bold", className)}>
       <Logo size={size} /> Creatorship.io
     </div>
   );
