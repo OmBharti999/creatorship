@@ -149,6 +149,20 @@ export const Pricing = () => {
   );
 };
 
+export const Footer = () => {
+  return (
+    <footer className="bg-black w-full min-h-72 flex justify-center items-center flex-col gap-2">
+      <LogoWithName />
+      <h4 className="text-gray-300 mt-5">
+        Ship your startup in days, not weeks
+      </h4>
+      <h5 className="text-gray-400">
+        © {new Date().getFullYear()} Creatorship.io - All rights reserved
+      </h5>
+    </footer>
+  );
+};
+
 export const HomeDisplay = () => {
   return (
     <div className="bg-[#000000] text-white min-h-screen p-8 pt-6">
@@ -232,6 +246,7 @@ export const HomeDisplay = () => {
       {/* pricing */}
       <Pricing />
       {/* Footer */}
+      <Footer />
       {/* <div className="flex justify-center mt-12">
         <img
           src="/path-to-your-image.png"
