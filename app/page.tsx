@@ -7,7 +7,7 @@ import { Separator } from "@/components/ui/separator";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
 
-export async function HomeComponent() {
+async function HomeComponent() {
   const posts = await getAllPostsWithUserEmail();
 
   const user = await currentUser();
