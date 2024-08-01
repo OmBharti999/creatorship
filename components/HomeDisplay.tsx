@@ -7,6 +7,7 @@ import { HeroScrollDemo } from "./shared/ScollContainer";
 import { FlipWordsComponent } from "./shared/FlipWords";
 import { Heart, LucideMove } from "lucide-react";
 import Navbar from "./shared/navbar";
+import { GlobeDemo } from "./shared/GithubGlobe";
 
 // export const Nav = () => {
 //   return (
@@ -73,7 +74,7 @@ export const ContentSection = () => {
   ];
 
   return (
-    <section className="bg-neutral-400 py-14">
+    <section className="bg-neutral-400 py-20">
       <h4 className="text-4xl text-center font-semibold">Features</h4>
       <h6 className="text-lg text-center flex gap-2 justify-center items-center mt-2">
         Why thousands of People <Heart />
@@ -232,7 +233,7 @@ export const Pricing = () => {
   ];
 
   return (
-    <div className=" bg-white/90 min-h-screen flex flex-col items-center justify-center p-4">
+    <div className=" bg-white/90 min-h-screen flex flex-col items-center justify-center p-4 py-16">
       <h1 className="text-4xl font-bold text-neutral-950 mb-2">Pricing</h1>
       <p className="text-gray-900 mb-8">
         Save hours of repetitive code and ship faster!
@@ -273,6 +274,7 @@ export const HomeDisplay = () => {
       {/* pricing */}
       <Pricing />
       {/* Footer */}
+      <GlobeDemo />
       <Footer />
       {/* <div className="flex justify-center mt-12">
         <img
