@@ -112,7 +112,7 @@ const PricingCard = ({
   isPopular: boolean;
 }) => (
   <div
-    className={`bg-neutral-950 rounded-lg p-6 ${
+    className={`pricing-card hover:scale-105 duration-500 transition-all bg-neutral-950 rounded-lg p-6 ${
       isPopular ? "border-2 border-yellow-500" : ""
     }`}
   >
@@ -227,12 +227,12 @@ export const Pricing = () => {
   ];
 
   return (
-    <div className="bg-white/90 min-h-screen flex flex-col items-center justify-center p-4">
+    <div className=" bg-white/90 min-h-screen flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold text-neutral-950 mb-2">Pricing</h1>
       <p className="text-gray-900 mb-8">
         Save hours of repetitive code and ship faster!
       </p>
-      <div className="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl w-full pricing-section ">
         {plans.map((plan, index) => (
           <PricingCard key={index} {...plan} />
         ))}

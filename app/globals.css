@@ -70,3 +70,7 @@
 .content-card-section:hover .content-card:not(:hover) {
   @apply scale-90 opacity-60;
 }
+
+.pricing-section:hover .pricing-card:not(:hover) {
+  @apply scale-75 opacity-60;
+}
