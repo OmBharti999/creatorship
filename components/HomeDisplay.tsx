@@ -4,6 +4,7 @@ import Logo, { LogoWithName } from "./shared/Logo";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { HeroScrollDemo } from "./shared/ScollContainer";
+import { FlipWordsComponent } from "./shared/FlipWords";
 
 export const Nav = () => {
   return (
@@ -29,15 +30,9 @@ export const Nav = () => {
 
 export const HeroSection = () => {
   return (
-    <section className="mt-5 flex min-h-[60vh] xl:min-h-[80vh] mx-auto bg-hero-pattern bg-cover bg-no-repeat ">
+    <section className="mt-5 flex min-h-96 xl:min-h-[80vh] mx-auto bg-hero-pattern bg-cover bg-no-repeat ">
       <div className="bg-black bg-opacity-50 w-full flex justify-center flex-col items-center">
-        <h1 className="text-5xl xl:text-6xl font-bold mb-4">
-          Build. Contribute. Evolve.
-        </h1>
-        <p className="text-lg">
-          Shape the merchant and creators experience for the first time as a
-          core product, the admin.
-        </p>
+        <FlipWordsComponent />
       </div>
     </section>
   );
@@ -76,24 +71,27 @@ export const ContentSection = () => {
   ];
 
   return (
-    <section className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
-      {features.map(({ id, featureDescription, featureTitle, icon }) => (
-        <section
-          className="content-card bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
-          key={id}
-        >
-          <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-xl">
-            <Image src={icon} alt={featureTitle} width={100} height={100} />
-          </div>
-          <div className="p-5 text-black">
-            <h2 className="text-xl font-bold">{featureTitle}</h2>
-            <p className="font-semibold text-gray-600 text-sm">
-              {featureDescription}
-            </p>
-          </div>
-        </section>
-      ))}
-    </section>
+    <>
+      <h4 className="text-3xl text-center">Features</h4>
+      <section className="content-card-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 xl:gap-11 my-12 mx-auto ">
+        {features.map(({ id, featureDescription, featureTitle, icon }) => (
+          <section
+            className="content-card bg-white rounded-lg shadow-lg overflow-hidden max-w-[340px] mx-auto hover:scale-110 transition-all duration-300"
+            key={id}
+          >
+            <div className="w-full bg-violet-600 flex justify-center py-16 rounded-ee-xl">
+              <Image src={icon} alt={featureTitle} width={100} height={100} />
+            </div>
+            <div className="p-5 text-black">
+              <h2 className="text-xl font-bold">{featureTitle}</h2>
+              <p className="font-semibold text-gray-600 text-sm">
+                {featureDescription}
+              </p>
+            </div>
+          </section>
+        ))}
+      </section>
+    </>
   );
 };
 
